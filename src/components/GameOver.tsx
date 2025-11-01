@@ -4,25 +4,20 @@ interface Props {
 }
 
 const GameOver = ({ earned, onRestart }: Props) => {
-  const prize =
-    [
-      "$0",
-      "$1,000",
-      "$2,000",
-      "$3,000",
-      "$5,000",
-      "$10,000",
-      "$16,000",
-      "$20,000",
-      "$32,000",
-      "$40,000",
-      "$64,000",
-      "$80,000",
-      "$125,000",
-      "$250,000",
-      "$500,000",
-      "$1,000,000",
-    ][earned] || "$0";
+  const prizes = [
+    "Gracias por participar",
+    "Gracias por participar",
+    "Gracias por participar",
+    "Mentas para todos",
+    "Mentas para todos",
+    "Mentas para todos",
+    "⁠Bombones",
+    "⁠Bombones",
+    "⁠Paquete de todito",
+    "Sopresa ⁠???",
+  ];
+
+  const prize = prizes[earned - 1] || "Gracias por participar";
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">

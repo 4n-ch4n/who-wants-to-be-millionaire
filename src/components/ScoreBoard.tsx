@@ -4,21 +4,16 @@ interface Props {
 
 const ScoreBoard = ({ earned }: Props) => {
   const prizes = [
-    "$1,000",
-    "$2,000",
-    "$3,000",
-    "$5,000",
-    "$10,000",
-    "$16,000",
-    "$20,000",
-    "$32,000",
-    "$40,000",
-    "$64,000",
-    "$80,000",
-    "$125,000",
-    "$250,000",
-    "$500,000",
-    "$1,000,000",
+    "Gracias por participar",
+    "Gracias por participar",
+    "Gracias por participar",
+    "Mentas para todos",
+    "Mentas para todos",
+    "Mentas para todos",
+    "⁠Bombones",
+    "⁠Bombones",
+    "⁠Paquete de todito",
+    "Sopresa ⁠???",
   ];
 
   return (

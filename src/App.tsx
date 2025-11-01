@@ -7,6 +7,8 @@ import ScoreBoard from "./components/ScoreBoard";
 import GameOver from "./components/GameOver";
 
 function App() {
+  // Select a group of questions
+  const questionsGroup = questions[2];
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0);
   const [earned, setEarned] = useState(0);
   const [gameOver, setGameOver] = useState(false);
@@ -22,11 +24,17 @@ function App() {
   } | null>(null);
 
   const handleAnswer = (answer: string) => {
-    const current = questions[currentQuestionIdx];
-    if (answer !== current.correctAnswer) setGameOver(true);
+    const current = questionsGroup[currentQuestionIdx];
+    if (answer !== current.correctAnswer) {
+      setGameOver(true)
+      return;
+    };
     setEarned((prev) => prev + 1);
 
-    if (currentQuestionIdx + 1 === questions.length) setGameOver(true);
+    if (currentQuestionIdx === questionsGroup.length - 1) {
+      setGameOver(true)
+      return;
+    };
     setCurrentQuestionIdx((prev) => prev + 1);
   };
 
@@ -46,7 +54,7 @@ function App() {
               Quien Quiere Ser Millonario?
             </h1>
             <p className="text-muted-foreground text-lg">
-              Pregunta {currentQuestionIdx + 1} de {questions.length}
+              Pregunta {currentQuestionIdx + 1} de {questionsGroup.length}
             </p>
           </div>
         </div>
@@ -67,7 +75,7 @@ function App() {
                   />
                 </div>
                 <Question
-                  data={questions[currentQuestionIdx]}
+                  data={questionsGroup[currentQuestionIdx]}
                   onAnswer={handleAnswer}
                   activeLifeline={activeLifeline}
                   setActiveLifeline={setActiveLifeline}
